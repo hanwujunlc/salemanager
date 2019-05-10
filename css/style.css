@@ -1,0 +1,71 @@
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+    width: 100%;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+/*    background-color:#ef5122;*/
+/*    height:400px;*/
+    height: 400px;
+    width:120px;
+    float:left;
+    padding:5px; 
+/*    background-color:green;*/
+}
+#section {
+   /* width:350px;*/
+    float:left;
+    padding:10px;
+    height: 400px;
+/*    margin-left: 10px;
+    margin-right: 10px;*/
+    width: 350px;
+/*    background-color:red;*/
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+    width: 100%;
+}
+
+.menu {
+/*  height: 100%;*/
+/*  margin-left: 30px;*/
+  padding:0 20px;
+  font-size: 20px;
+/*  background-color: #ef5122;*/
+ /* float: left;*/
+  color: black;
+  cursor:pointer;
+  font-family: 微软雅黑;
+}
+
+#user_tab {
+
+    width: 1365px;
+    height: 571px;
+    margin: auto;
+    padding-top: 41px;
+    background-color: #f3f6f8;
+}
+
+#user_list{
+
+    border: 1px solid #dce8f6; 
+    width: 1099px;
+    height: 310px;
+    overflow: hidden;
+ 
+    margin: auto;
+    
+    background-color: white;
+    position:relative ;
+}

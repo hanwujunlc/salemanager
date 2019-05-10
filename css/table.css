@@ -1,0 +1,164 @@
+
+#template_div_tab{
+	width: 1365px;
+	height: 571px;
+	margin: auto;
+	padding-top: 20px;
+	background-color: #f3f6f8;
+	background-color: red;
+
+}
+
+#template_tab_div_2{
+	border: 1px solid #dce8f6; 
+	width: 1099px;
+	height: 310px;
+	/*overflow: hidden;*/
+ 	overflow: scroll;
+ 	overflow-x: hidden;
+	margin: auto;
+	
+	background-color: white;
+	background-color: #f3f6f8;
+	position:relative ;
+}
+
+#template_new_bt {
+/*	margin-top : 20px;
+	margin-left : 66px; */
+	margin: 10px auto;
+	height: 40px;
+	width: 179px;
+	outline: none;
+	background-color: #ef5122;
+	font-size: 16px;
+	color:#FFFFFF;
+}
+
+#template_table_tab {
+	margin: 10px auto;
+	width: 965px;
+	border-collapse:collapse;
+	text-align:center;
+	position: relative;
+	
+}
+
+#template_table_tab tr {
+	height: 36px;
+}
+
+#template_table_tab th {
+	border-width: 0px;
+
+	background-color: #e3e6ea;
+	color:  #404a55; 
+	font-size: 18px;
+}
+
+#template_table_tab td {
+	color:  #7d7d7d; 
+	font-size: 16px;
+}
+
+#template_table_tab input {
+	font-size: 16px;
+	color:  #404a55;
+	outline: none;
+	background-color: transparent;
+}
+
+#template_table_tab input:hover {
+	color: #ef5122;
+}
+
+
+
+#template_add_tab_div {
+	position: absolute;
+	z-index: 101;
+	width: 620px;
+	height: 450px;
+
+	margin: auto;
+	top: 130px;
+	background-color: white;
+
+	box-shadow: -5px -5px 20px 2px #888888;
+
+	border: 1px;
+}
+
+#template_add_tab_title {
+	position: absolute;
+	font-size: 18px;
+	color:  #404a55;
+	padding-top: 20px;
+	padding-left: 29px; 
+
+}
+
+#template_add_tab_line {
+	margin-top: 50px;
+
+	border: 1px solid #e3e6ea; 
+}
+
+#template_add_tab_content {
+	padding-top: 40px;
+	padding-left: 87px;
+}
+
+#template_add_tab_id {
+
+	float: left;
+	color: #404A55;
+	font-size: 16px;
+}
+
+#template_add_tab_id p {
+	height: 40px;
+	margin-top: 14px;
+	margin-bottom: 14px;
+	vertical-align: center;
+}
+
+#template_add_tab_input {
+	padding-left: 38px;
+	margin-left: 38px;
+}
+
+#template_add_tab_input input {
+	height: 40px;
+	width: 360px;
+	margin-bottom: 13px;
+	color: #404A55;
+	font-size: 18px;
+}
+
+#template_add_tab_input select {
+	height: 40px;
+	width: 360px;
+	color: #404A55;
+	font-size: 18px;
+}
+
+#template_add_tab_bt {
+	margin-top: 40px;
+	margin-left: 120px;
+}
+
+#template_add_tab_bt input {
+	height: 33px;
+	width: 150px;
+	margin-right: 66px;
+	text-align: center;
+	background-color: #e3e6ea;
+	color: #404a55;
+	font-size: 16px;
+}
+
+#template_add_tab_bt input:hover {
+	background-color: #ef5122;
+	color: #ffffff;
+}
