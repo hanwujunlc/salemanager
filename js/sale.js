@@ -1,30 +1,29 @@
 document.write("<script language=javascript src='js/index.js' charset=\"utf-8\"></script>");
 
 var xmlhttp = null;
-var customer_list = [];
+var sale_list = [];
 var template_div_node;
 var template_table_node;
 var template_new_bt_node;
 var template_add_tab_bt_cancle_node;
 var template_add_tab_bt_confirm_node;
  
-function customer_data_manager(argument) {
+function sale_data_manager(argument) {
 	// body...
-    console.log("customer_data_manager")
+    console.log("sale_data_manager")
     template_div_node = document.getElementById("template_tab_div");
     template_div_node.style.display = "block";
     template_table_node = document.getElementById("template_table_tab");
     template_new_bt_node = document.getElementById("template_new_bt");
 
-    //template_new_bt_node.setAttribute('onclick', add_new_customer_data);
-    //template_new_bt_node.attachEvent("onclick", add_new_customer_data);
-    template_new_bt_node.onclick = add_new_customer_data;
+    //template_new_bt_node.setAttribute('onclick', add_new_sale_data);
+    //template_new_bt_node.attachEvent("onclick", add_new_sale_data);
+    template_new_bt_node.onclick = add_new_sale_data;
     template_add_tab_bt_confirm_node = document.getElementById("template_add_tab_bt_confirm");
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
-    template_add_tab_bt_confirm_node.onclick = add_new_customer_data_confirm;
-    template_add_tab_bt_cancle_node.onclick = add_new_customer_data_cancle;
-    get_customer_data();
-    //add_test_data();
+    template_add_tab_bt_confirm_node.onclick = add_new_sale_data_confirm;
+    template_add_tab_bt_cancle_node.onclick = add_new_sale_data_cancle;
+    get_sale_data();
 
 }
 
@@ -32,44 +31,53 @@ var template_add_tab_node;
 var template_add_tab_title_node;
 var template_add_tab_id_node;
 var template_add_tab_input_node;
-function add_new_customer_data(argument) {
+function add_new_sale_data(argument) {
 	// body...
-	console.log("add_new_customer_data")
+	console.log("add_new_sale_data")
 	showUserBg();
 	show_template_add_tab();
 	template_add_tab_title_node = document.getElementById("template_add_tab_title");
-	template_add_tab_title_node.innerHTML = "添加客户";
+	template_add_tab_title_node.innerHTML = "添加销售数据";
 	template_add_tab_id_node = document.getElementById("template_add_tab_id");
 	clear_node_all_child(template_add_tab_id_node);
-	var name = document.createElement("p");
-	name.innerHTML = "名字";
-	name.id = "add_new_customer_p_name_id";
-	template_add_tab_id_node.appendChild(name);
-	var telephone = document.createElement("p");
-	telephone.innerHTML = "电话";
-	telephone.id = "add_new_customer_p_telephone_id";
-	template_add_tab_id_node.appendChild(telephone);
-	var addr = document.createElement("p");
-	addr.innerHTML = "地址";
-	addr.id = "add_new_customer_p_addr_id";
-	template_add_tab_id_node.appendChild(addr);
+	var customer = document.createElement("p");
+	customer.innerHTML = "客户";
+	customer.id = "add_new_sale_p_customer_id";
+	template_add_tab_id_node.appendChild(customer);
+	var item = document.createElement("p");
+	item.innerHTML = "物品";
+	item.id = "add_new_sale_p_item_id";
+	template_add_tab_id_node.appendChild(item);
+	var number = document.createElement("p");
+	number.innerHTML = "数量";
+	number.id = "add_new_sale_p_number_id";
+	template_add_tab_id_node.appendChild(number);
+	var prices = document.createElement("p");
+	prices.innerHTML = "单价";
+	prices.id = "add_new_sale_p_prices_id";
+	template_add_tab_id_node.appendChild(prices);
 
 	template_add_tab_input_node = document.getElementById("template_add_tab_input");
 	clear_node_all_child(template_add_tab_input_node);
-	var name_input = document.createElement("input");
-	name_input.type = "text";
-	name_input.id = "add_new_customer_input_name_id"
-	template_add_tab_input_node.appendChild(name_input);
+	var customer_input = document.createElement("input");
+	customer_input.type = "text";
+	customer_input.id = "add_new_sale_input_customer_id"
+	template_add_tab_input_node.appendChild(customer_input);
 
-	var telephone_input = document.createElement("input");
-	telephone_input.type = "text";
-	telephone_input.id = "add_new_customer_telephone_name_id"
-	template_add_tab_input_node.appendChild(telephone_input);
+	var item_input = document.createElement("input");
+	item_input.type = "text";
+	item_input.id = "add_new_sale_input_item_id"
+	template_add_tab_input_node.appendChild(item_input);
 
-	var addr_input = document.createElement("input");
-	addr_input.type = "text";
-	addr_input.id = "add_new_customer_input_addr_id"
-	template_add_tab_input_node.appendChild(addr_input);
+	var number_input = document.createElement("input");
+	number_input.type = "text";
+	number_input.id = "add_new_sale_number_customer_id"
+	template_add_tab_input_node.appendChild(number_input);
+
+	var prices_input = document.createElement("input");
+	prices_input.type = "text";
+	prices_input.id = "add_new_sale_input_prices_id"
+	template_add_tab_input_node.appendChild(prices_input);
 
 
 }
@@ -124,25 +132,28 @@ function clear_node_all_child(node) {
 }
 
 
-function add_new_customer_data_confirm(argument) {
+function add_new_sale_data_confirm(argument) {
 	// body...
-	console.log("add_new_customer_data_confirm");
+	console.log("add_new_sale_data_confirm");
 	hidder_template_add_tab();
 	
-	var name = document.getElementById("add_new_customer_input_name_id").value;
-	console.log(name);
-	var telephone = document.getElementById("add_new_customer_telephone_name_id").value;
-	console.log(telephone);
-	var addr = document.getElementById("add_new_customer_input_addr_id").value;
-	console.log(addr);
-	var data = '{"name":"' + name + '", "telephone":"' + telephone + '", "addr":"' + addr + '"}';
-	var  urladdr = httpurl + "/php/customerAction.php?action=insert&msg=" + data;
+	var customer = document.getElementById("add_new_sale_input_customer_id").value;
+	console.log(customer);
+	var item = document.getElementById("add_new_sale_input_item_id").value;
+	console.log(item);
+
+	var number = document.getElementById("add_new_sale_number_customer_id").value;
+	console.log(number);
+	var prices = document.getElementById("add_new_sale_input_prices_id").value;
+	console.log(prices);
+	var data = '{"customer":"' + customer + '", "item":"' + item + 
+	 '", "number":"' + number + '", "prices":"' + prices + '"}';
+	var  urladdr = httpurl + "/php/saleAction.php?action=insert&msg=" + data;
 	console.log("urladdr = " + urladdr);
-	//sendHTTPRequest(urladdr, loginfunc);  
-	sendHTTPRequest(urladdr, inser_customer_func);
+	sendHTTPRequest(urladdr, inser_sale_func);
 }
 
-function inser_customer_func(argument) {
+function inser_sale_func(argument) {
 	// body...
 	if (xmlhttp.readyState == 4) {
 	    console.log("this.status = " + this.status);
@@ -156,25 +167,25 @@ function inser_customer_func(argument) {
 
 }
 
-function add_new_customer_data_cancle(argument) {
+function add_new_sale_data_cancle(argument) {
 	// body...
-	console.log("add_new_customer_data_cancle");
+	console.log("add_new_sale_data_cancle");
 	hidder_template_add_tab();
 }
 
-function get_customer_data(argument) {
+function get_sale_data(argument) {
 	// body...
 
-	customer_list = [];
+	sale_list = [];
 	var data = '{}';
-	var  urladdr = httpurl + "/php/customerAction.php?action=list&msg=" + data;
+	var  urladdr = httpurl + "/php/saleAction.php?action=list&msg=" + data;
 	console.log("urladdr = " + urladdr);
 	//sendHTTPRequest(urladdr, loginfunc);  
-	sendHTTPRequest(urladdr, get_customer_func);
+	sendHTTPRequest(urladdr, get_sale_func);
 
 }
 
-function get_customer_func(argument) {
+function get_sale_func(argument) {
 	// body...
 
   if (xmlhttp.readyState == 4) {
@@ -188,35 +199,37 @@ function get_customer_func(argument) {
       for(var i = 0; i < array.length; i++) {
           var line = array[i];
           var array2 = line.split("<br />");
-          if(4 == array2.length){ 
+          if(6 == array2.length){ 
               var node = {};
               node.id = array2[0];
-              node.name = array2[1];
-              node.telephone =  array2[2];
-              node.addr = array2[3];
-              customer_list.push(node);
+              node.customer = array2[1];
+              node.item = array2[2];
+              node.number =  array2[3];
+              node.prices = array2[4];
+              node.sale_time = array2[5];
+              sale_list.push(node);
           } 
         }
-      show_customer_info();
+      show_sale_info();
     }
   }
 }
 
 
-function show_customer_info () {
-	console.log("show_customer_info");
+function show_sale_info () {
+	console.log("show_sale_info");
     var rows = template_table_node.rows.length; 
     while(rows > 1) {
         template_table_node.deleteRow(rows - 1);
         rows--; 
     }
-    // var data_left = customer_list.length - (user_data_current_page_index * tab_emlent_limit);
+    // var data_left = sale_list.length - (user_data_current_page_index * tab_emlent_limit);
 
     // var limit = tab_emlent_limit > data_left ? data_left : tab_emlent_limit;
 
-    // var data_rows = customer_list.length;
+    // var data_rows = sale_list.length;
 
-    // var tab_counts = customer_list.length / tab_emlent_limit;
+    // var tab_counts = sale_list.length / tab_emlent_limit;
 
     // if (Math.ceil(tab_counts) != Math.floor(tab_counts)) {
     //     tab_counts = Math.ceil(tab_counts);
@@ -225,7 +238,7 @@ function show_customer_info () {
     // list_total_id_node.innerHTML = data_rows;
     // tab_index_id_node.innerHTML = (user_data_current_page_index + 1) + "/" + tab_counts;
 
-    for (var i = 0; i < customer_list.length; ++i) {
+    for (var i = 0; i < sale_list.length; ++i) {
 
        // var i = i + user_data_current_page_index * tab_emlent_limit;
 
@@ -236,17 +249,20 @@ function show_customer_info () {
             //newrows.style.opacity = 0.27;
         }
 
-        var id_node = newrows.insertCell(0);
-        id_node.innerHTML = customer_list[i].id;
+        var customer_node = newrows.insertCell(0);
+        customer_node.innerHTML = sale_list[i].customer;
 
-        var user_node = newrows.insertCell(1);
-        user_node.innerHTML = customer_list[i].name;
+        var item_node = newrows.insertCell(1);
+        item_node.innerHTML = sale_list[i].item;
 
-		var telephone_node = newrows.insertCell(2);
-		telephone_node.innerHTML = customer_list[i].telephone;
+        var number_node = newrows.insertCell(2);
+        number_node.innerHTML = sale_list[i].number;
 
-		var addr_node = newrows.insertCell(3);
-		addr_node.innerHTML = customer_list[i].addr;
+		var prices_node = newrows.insertCell(3);
+		prices_node.innerHTML = sale_list[i].prices;
+
+		var sale_time_node = newrows.insertCell(4);
+		sale_time_node.innerHTML = sale_list[i].sale_time;
 
     }
 

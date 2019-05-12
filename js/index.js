@@ -155,8 +155,8 @@ function showUserInfo () {
     }
 }
 
-function sale_data_manager() {
-	console.log("sale_data_manager")
+function sale_data_manager__() {
+	console.log("sale_data_manager__")
 	//var  urladdr = httpurl + "/php/handler.php?username1="+username1+"&password1="+password1 + "&random=100";
 	//console.log("urladdr = " + urladdr);
 	//sendHTTPRequest(urladdr, loginfunc);  

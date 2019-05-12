@@ -85,3 +85,17 @@ CREATE TABLE `stock_data` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
+-- ----------------------------
+-- Table structure for `stock_record`
+-- ----------------------------
+DROP TABLE IF EXISTS `stock_record`;
+CREATE TABLE `stock_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
+  `cost`  int(11) NOT NULL,
+  `stock_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
