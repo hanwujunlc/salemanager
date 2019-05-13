@@ -48,9 +48,8 @@ function item_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_item_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_item_data_cancle;
+    init_item_table_th();
     get_items_data();
-    //add_test_data();
-
 }
 
 var template_add_tab_node;
@@ -243,5 +242,19 @@ function show_item_info () {
         user_node.innerHTML = items_list[i].name;
 
     }
+
+}
+
+function init_item_table_th(argument) {
+	// body...
+	console.log("init_item_table_th");
+	var rows = template_table_node.rows.length; 
+	template_table_node.deleteRow(0);
+	var throws = template_table_node.insertRow(0);
+
+	var id_node = creatThByValue("ID");
+	throws.appendChild(id_node);
+	var name_node = creatThByValue("名称");
+	throws.appendChild(name_node);
 
 }

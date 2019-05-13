@@ -23,8 +23,8 @@ function customer_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_customer_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_customer_data_cancle;
+    init_customer_table_th();
     get_customer_data();
-    //add_test_data();
 
 }
 
@@ -236,18 +236,32 @@ function show_customer_info () {
             //newrows.style.opacity = 0.27;
         }
 
-        var id_node = newrows.insertCell(0);
-        id_node.innerHTML = customer_list[i].id;
+        // var id_node = newrows.insertCell(0);
+        // id_node.innerHTML = customer_list[i].id;
 
-        var user_node = newrows.insertCell(1);
+        var user_node = newrows.insertCell(0);
         user_node.innerHTML = customer_list[i].name;
 
-		var telephone_node = newrows.insertCell(2);
+		var telephone_node = newrows.insertCell(1);
 		telephone_node.innerHTML = customer_list[i].telephone;
 
-		var addr_node = newrows.insertCell(3);
+		var addr_node = newrows.insertCell(2);
 		addr_node.innerHTML = customer_list[i].addr;
 
     }
 
+}
+
+
+function init_customer_table_th(argument) {
+	// body...
+	console.log("init_customer_table_th");
+	var rows = template_table_node.rows.length; 
+	template_table_node.deleteRow(0);
+	var throws = template_table_node.insertRow(0);
+
+	//throws.appendChild(creatThByValue("ID"));
+	throws.appendChild(creatThByValue("名称"));
+	throws.appendChild(creatThByValue("电话"));
+	throws.appendChild(creatThByValue("地址"));
 }

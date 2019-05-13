@@ -264,3 +264,14 @@ function hidediv() {
     document.getElementById("show").style.display ='none';
     document.getElementById("singlebutton").style.display ='none';
 }
+
+
+
+function creatThByValue(value) {
+  // body...
+  var th_node  = document.createElement("TH");
+  var value_node = document.createTextNode(value);
+  th_node.appendChild(value_node);
+  return th_node;
+
+}

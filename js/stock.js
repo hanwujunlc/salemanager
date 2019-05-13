@@ -23,6 +23,7 @@ function stock_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_stock_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_stock_data_cancle;
+    init_stock_table_th();
     get_stock_data();
 
 }
@@ -250,4 +251,18 @@ function show_stock_info () {
 
     }
 
+}
+
+function init_stock_table_th(argument) {
+	// body...
+	console.log("init_stock_table_th");
+	var rows = template_table_node.rows.length; 
+	template_table_node.deleteRow(0);
+	var throws = template_table_node.insertRow(0);
+
+	//throws.appendChild(creatThByValue("ID"));
+	throws.appendChild(creatThByValue("名称"));
+	throws.appendChild(creatThByValue("数量"));
+	throws.appendChild(creatThByValue("成本"));
+	throws.appendChild(creatThByValue("时间"));
 }

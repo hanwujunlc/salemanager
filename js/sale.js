@@ -23,6 +23,7 @@ function sale_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_sale_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_sale_data_cancle;
+    init_sale_table_th();
     get_sale_data();
 
 }
@@ -265,5 +266,22 @@ function show_sale_info () {
 		sale_time_node.innerHTML = sale_list[i].sale_time;
 
     }
+
+}
+
+function init_sale_table_th(argument) {
+	// body...
+	console.log("init_sale_table_th");
+	var rows = template_table_node.rows.length; 
+	template_table_node.deleteRow(0);
+	var throws = template_table_node.insertRow(0);
+
+	var id_node = creatThByValue("客户");
+	throws.appendChild(id_node);
+	var name_node = creatThByValue("物品");
+	throws.appendChild(name_node);
+	throws.appendChild(creatThByValue("数量"));
+	throws.appendChild(creatThByValue("单价"));
+	throws.appendChild(creatThByValue("时间"));
 
 }
