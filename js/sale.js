@@ -95,17 +95,6 @@ function add_new_data(argument) {
 
 }
 
-function template_add_tab_bt_cancle(argument) {
-	// body...
-	hidder_template_add_tab();
-
-}
-
-function template_add_tab_bt_confirm(argument) {
-	// body...
-	hidder_template_add_tab();
-}
-
 function hidder_template_add_tab(argument) {
 	// body...
 	hiddenUserBg();

@@ -21,7 +21,6 @@
 		if($node) {
 			if ("" != $node->customer) {
 				$sql_str = 'INSERT INTO `sale_data` (customer_id, item_id, number, prices)  values ((SELECT id FROM `customer` WHERE name = "' .  $node->customer .'"),(SELECT id FROM `items` WHERE name = "' .  $node->item .'"),"'  . $node->number . '", "' . $node->prices . '")';
-				echo $sql_str;
 				$ret = mysqli_query($conn, $sql_str);
 				if (!$ret)
 				{

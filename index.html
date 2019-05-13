@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理界面</title>
-    <link rel="stylesheet" type="text/css" href="css/userlist.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/table.css">
     <script language=javascript src='js/index.js' ></script>
@@ -25,57 +24,6 @@
 		<a href="#" class="contact" onclick = "item_data_manager()">物品管理</a>
 	</nav>
 
-
-	<div id = "user_tab" style = "display:none">
-		<div id = "user_list" style = "display:none">
-			<input type= "button" id = "new_user_id" value = "＋  添加新客户数据" onclick= "add_sale_data()">
-			<table id = "user_info_table">
-				<tr>
-					<th>ID</th>
-					<th>用户名</th>
-					<th>账户权限</th>
-					<th>操作</th>
-				</tr>
-			</table>
-			<div id = "user_list_bottom" style = "display:block">
-				<a id = "font_bottom_left">共 <font id = "list_total_id">0</font> 条记录       当前第 <font id = "tab_index_id">0/0</font> 页</a>
-				<a id = "font_bottom_right"> 
-					<input type = "button" value = "首页  " onclick = "home_page()"> 
-					<input type = "button" value = "上一页  " onclick = "prev_page()">
-					跳转<input type = "text" value = "1" onchange="current_tab_index_change(this.value)">页
-					<input type = "button" value = "  下一页  " onclick = "next_page()">
-					<input type = "button" value = "尾页" onclick = "end_page()">
-				</a>
-			</div>
-			<div id = "user_list_nodata_label" style = "display:none">
-				<font id = "user_list_nodata_font">还没有添加新用户</font>
-				 
-			</div>
-
-		</div>
-		<div id = "add_user_tab" style = "display:none">
-			<font id = "add_tab_title">添加客户</font>
-			<hr id = "add_tab_line"/>
-			<div id = "add_user_tab_content">
-				<div id = "add_user_title_id">
-					<p class="add_user_font">姓名</p>
-					<p class="add_user_font">电话</p>
-			 		<p class="add_user_font">地址</p>
-				</div>
-				<div id = "add_user_input_id">
-					<input type="text" id = "add_user_input_name" autocomplete="off"> <br/>
-					<input type="text" id = "add_user_input_telephone" autocomplete="off"> <br/>
-					<input type="text" id = "add_user_input_addr" autocomplete="off"> <br/>
-
-				</div>
-			</div>
-			<div id = "add_user_bt_id">
-				<input type="button" value = "取消" id = "add_user_bt_cancle" onclick = "add_user_bt_cancle()"> 
-				<input type="button" value = "确定" id = "add_user_bt_confirm" onclick = "add_user_bt_confirm()">
-			</div>
-		</div>
-
-</div>
 <div id = "template_tab_div" style = "display:none">
 	
 	<input type= "button" id = "template_new_bt" value = "＋  添加新数据" onclick= "add_new_data()">

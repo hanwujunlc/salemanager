@@ -155,3 +155,9 @@ p b{
   height: 40px;
   border-radius: 5px;
 }
+
+
+input[type="button"] {
+	outline: none;
+	border: 0;
+}

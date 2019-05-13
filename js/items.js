@@ -7,32 +7,7 @@ var template_table_node;
 var template_new_bt_node;
 var template_add_tab_bt_cancle_node;
 var template_add_tab_bt_confirm_node;
-function add_test_data(argument) {
-	// body...
 
-	for (var i = 0; i < 10; i++) {
-	
-		var newrows = template_table_node.insertRow(i + 1);
-		if (0 == (i + 1) % 2) {
-		// /newrows.style.backgroundColor = "#e3e6ea"; //#f7f8fa
-			newrows.style.backgroundColor = "#f7f8fa"; //#f7f8fa
-		//newrows.style.opacity = 0.27;
-		}
-
-		var id_node = newrows.insertCell(0);
-		id_node.innerHTML = "张三";
-
-		var user_node = newrows.insertCell(1);
-		user_node.innerHTML = "1234444444444";
-
-		var per_node = newrows.insertCell(2);
-		per_node.innerHTML = "山东xxxxxxxxxxxxxx"
-
-		var option_node = newrows.insertCell(3);
-		//option_node.innerHTML = items_list[i].option;
-		option_node.innerHTML = "items_list[i].addr";
-	}
-}
 function item_data_manager(argument) {
 	// body...
     console.log("item_data_manager")
@@ -91,17 +66,6 @@ function add_new_data(argument) {
 
 }
 
-function template_add_tab_bt_cancle(argument) {
-	// body...
-	hidder_template_add_tab();
-
-}
-
-function template_add_tab_bt_confirm(argument) {
-	// body...
-	hidder_template_add_tab();
-}
-
 function hidder_template_add_tab(argument) {
 	// body...
 	hiddenUserBg();
@@ -115,8 +79,8 @@ function show_template_add_tab(argument) {
 	// body...
 	template_add_tab_node = document.getElementById("template_add_tab_div");
 	template_add_tab_node.style.display = "block";
-	var width = (window.innerWidth - template_add_tab_node.offsetWidth - 20 ) / 2;
-	template_add_tab_node.style.left = width + "px";
+	// var width = (window.innerWidth - template_add_tab_node.offsetWidth - 20 ) / 2;
+	// template_add_tab_node.style.left = width + "px";
 }
 
 
@@ -134,8 +98,14 @@ function add_new_item_data_confirm(argument) {
 	console.log("add_new_item_data_confirm");
 	hidder_template_add_tab();
 	
+
 	var value = document.getElementById("add_new_iterm_input_name_id").value;
 	console.log(value);
+
+	if ("" == value) {
+		showlogininfo("输入为空！");
+	}
+
 	var data = '{"name":"' + value + '"}';
 	var  urladdr = httpurl + "/php/itemAction.php?action=insert&msg=" + data;
 	console.log("urladdr = " + urladdr);
