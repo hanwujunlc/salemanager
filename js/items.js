@@ -96,15 +96,18 @@ function clear_node_all_child(node) {
 function add_new_item_data_confirm(argument) {
 	// body...
 	console.log("add_new_item_data_confirm");
-	hidder_template_add_tab();
-	
-
 	var value = document.getElementById("add_new_iterm_input_name_id").value;
 	console.log(value);
 
 	if ("" == value) {
 		showlogininfo("输入为空！");
+		return;
 	}
+
+	hidder_template_add_tab();
+	
+
+
 
 	var data = '{"name":"' + value + '"}';
 	var  urladdr = httpurl + "/php/itemAction.php?action=insert&msg=" + data;
@@ -122,6 +125,13 @@ function inser_item_func(argument) {
 	    {
 	      var data = this.responseText;
 	      console.log(data);
+	      result = JSON.parse(data);
+	      if ("OK" == result.ret) {
+	      	showlogininfo("新建物品成功！");
+	      	get_items_data();
+	      } else {
+	      	showlogininfo("新建物品失败！")
+	      }
 		}
 	}
 

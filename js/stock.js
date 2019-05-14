@@ -140,6 +140,13 @@ function inser_stock_func(argument) {
 	    {
 	      var data = this.responseText;
 	      console.log(data);
+	      result = JSON.parse(data);
+	      if ("OK" == result.ret) {
+	      	showlogininfo("新建库存数据成功！");
+	      	get_stock_data();
+	      } else {
+	      	showlogininfo("新建库存数据失败！")
+	      }
 		}
 	}
 

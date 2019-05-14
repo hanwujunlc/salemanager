@@ -13,15 +13,16 @@
     <script language=javascript src='js/stock.js' ></script>
     <script language=javascript src='js/sale.js' ></script>
 </head>
-<body>
+<body onload="sale_data_manager()">
 
-<div id="main">
+<div id="main" >
 
 	<nav>
 		<a href="#" class="home" onclick = "sale_data_manager()">销售管理</a>
 		<a href="#" class="projects" onclick = "stock_data_manager()">库存管理</a>
 		<a href="#" class="services" onclick = "customer_data_manager()">客户管理</a>
 		<a href="#" class="contact" onclick = "item_data_manager()">物品管理</a>
+		<a href="#" class="contact" onclick = "sale_data_manager()">销售查询</a>
 	</nav>
 
 <div id = "template_tab_div" style = "display:none">
@@ -69,7 +70,7 @@
 </div>
 <div id="singlebutton">
 	<div id="singlecontent"></div>
-	<button id="singlebtnok" type="button" />知道了</button>
+	<button id="singlebtnok" type="button" onclick="hidediv()" />知道了</button>
 </div>
 </body>
 </html>

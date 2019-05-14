@@ -55,7 +55,7 @@ function singledialog(content,func_ok){
 function showlogininfo(str){
     var dialog1 = new singledialog(str);
     document.getElementById('singlecontent').innerHTML=dialog1.content;
-    setTimeout(hidediv,2000);
+    setTimeout(hidediv,2000000);
 }
 
 function hidediv() {

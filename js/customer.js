@@ -140,6 +140,13 @@ function inser_customer_func(argument) {
 	    {
 	      var data = this.responseText;
 	      console.log(data);
+	      result = JSON.parse(data);
+	      if ("OK" == result.ret) {
+	      	showlogininfo("新建客户成功！");
+	      	get_customer_data();
+	      } else {
+	      	showlogininfo("新建客户失败！")
+	      }
 		}
 	}
 

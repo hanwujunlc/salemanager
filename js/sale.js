@@ -152,6 +152,13 @@ function inser_sale_func(argument) {
 	    {
 	      var data = this.responseText;
 	      console.log(data);
+	      result = JSON.parse(data);
+	      if ("OK" == result.ret) {
+	      	showlogininfo("新建销售数据成功！");
+	      	get_sale_data();
+	      } else {
+	      	showlogininfo("新建销售数据失败！")
+	      }
 		}
 	}
 
