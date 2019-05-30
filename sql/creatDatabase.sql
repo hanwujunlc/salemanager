@@ -28,6 +28,3 @@ CREATE DATABASE IF NOT EXISTS `salemanager` DEFAULT CHARACTER SET utf8 ;
 
 GRANT ALL PRIVILEGES ON `salemanager` . * TO 'salemanager'@'%';
 GRANT ALL PRIVILEGES ON `salemanager` . * TO 'salemanager'@'localhost';
-
---
-/*

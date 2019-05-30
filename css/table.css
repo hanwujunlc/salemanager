@@ -23,7 +23,9 @@
 	position:relative ;
 }
 
-#template_new_bt {
+#template_tab_div input {
+
+/*#template_new_bt {
 /*	margin-top : 20px;
 	margin-left : 66px; */
 	margin: 10px auto;
@@ -93,8 +95,9 @@
 	position: absolute;
 	font-size: 18px;
 	color:  #404a55;
-	padding-top: 20px;
-	padding-left: 29px; 
+	padding-top: 12px;
+	padding-left: 0px; 
+	margin-left: -50px;
 
 }
 
@@ -106,7 +109,7 @@
 
 #template_add_tab_content {
 	padding-top: 40px;
-	padding-left: 87px;
+	padding-left: 50px;
 }
 
 #template_add_tab_id {
@@ -118,14 +121,14 @@
 
 #template_add_tab_id p {
 	height: 40px;
-	margin-top: 14px;
+	margin-top: 12px;
 	margin-bottom: 14px;
 	vertical-align: center;
 }
 
 #template_add_tab_input {
-	padding-left: 38px;
-	margin-left: 38px;
+	padding-left: 0px;
+	margin-left: 0px;
 }
 
 #template_add_tab_input input {

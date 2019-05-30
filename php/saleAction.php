@@ -10,6 +10,9 @@
 		insert_new_sale_data($msg, $conn);//
 	} elseif ("list" == $action) {
 		list_sale_data($msg, $conn);
+	} elseif ("query" == $action) {
+		# code...
+		query_sale_data($msg, $conn);
 	} elseif ("delete" == $action) {
 
 	}
@@ -57,6 +60,38 @@ on a.item_id = b.id and a.customer_id = c.id';
 		}
 	}
      
+    function query_sale_data($value='', $conn)
+    {
+    	# code...
+    	$node = json_decode($value);
+    	$customer = $node->customer;
+    	$item = $node->item;
+    	$begin_time = $node->begin_time;
+    	$end_time = $node->end_time;
+    	$sql_str = 'select a.id, c.name as customer, b.name as item, a.number, a.prices, a.sale_time 
+from `sale_data` a inner join `items` b inner join `customer` c 
+on a.item_id = b.id and a.customer_id = c.id';
+		#echo $sql_str;
+		if ("" != $customer) {
+			$sql_str = $sql_str . ' and c.name = "' . $customer . '"';
+		}
+		if ("" != $item) {
+			$sql_str = $sql_str . ' and b.name = "' . $item . '"';
+		}
+		if ("" != $begin_time) {
+			$sql_str = $sql_str . ' and a.sale_time >= "' . $begin_time . '"';
+		}
+		if ("" != $end_time) {
+			$sql_str = $sql_str . ' and a.sale_time <= "' . $end_time . '"';
+		}
+		# echo $sql_str;
+		$ret = mysqli_query($conn, $sql_str);
+
+		while($result = mysqli_fetch_array($ret)) {
+
+			echo  $result['id'] . "<br />" . $result['customer'] . "<br />" .  $result['item'] . "<br />" .  $result['number'] . "<br />" . $result['prices'] . "<br />" . $result['sale_time'] . "\r\n";
+		}
+    }
     mysqli_close($conn);
 ?>
 

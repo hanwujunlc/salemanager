@@ -23,6 +23,7 @@ function stock_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_stock_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_stock_data_cancle;
+    init_the_template_new_bt();
     init_stock_table_th();
     get_stock_data();
 
@@ -116,7 +117,6 @@ function clear_node_all_child(node) {
 function add_new_stock_data_confirm(argument) {
 	// body...
 	console.log("add_new_stock_data_confirm");
-	hidder_template_add_tab();
 	
 	var name = document.getElementById("add_new_stock_input_name_id").value;
 	console.log(name);
@@ -124,6 +124,13 @@ function add_new_stock_data_confirm(argument) {
 	console.log(number);
 	var cost = document.getElementById("add_new_stock_input_cost_id").value;
 	console.log(cost);
+
+	if ("" == name || "" == number || "" == cost) {
+		showlogininfo("添加数据为空！")
+		return;
+	}
+	hidder_template_add_tab();
+
 	var data = '{"name":"' + name + '", "number":"' + number + '", "cost":"' + cost + '"}';
 	var  urladdr = httpurl + "/php/stockAction.php?action=insert&msg=" + data;
 	console.log("urladdr = " + urladdr);
@@ -262,3 +269,4 @@ function init_stock_table_th(argument) {
 	throws.appendChild(creatThByValue("成本"));
 	throws.appendChild(creatThByValue("时间"));
 }
+

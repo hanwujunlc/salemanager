@@ -23,6 +23,7 @@ function item_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_item_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_item_data_cancle;
+    init_the_template_new_bt();
     init_item_table_th();
     get_items_data();
 }

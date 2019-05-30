@@ -14,15 +14,15 @@ function sale_data_manager(argument) {
     template_div_node = document.getElementById("template_tab_div");
     template_div_node.style.display = "block";
     template_table_node = document.getElementById("template_table_tab");
-    template_new_bt_node = document.getElementById("template_new_bt");
 
-    //template_new_bt_node.setAttribute('onclick', add_new_sale_data);
-    //template_new_bt_node.attachEvent("onclick", add_new_sale_data);
+    template_new_bt_node = document.getElementById("template_new_bt");
     template_new_bt_node.onclick = add_new_sale_data;
+
     template_add_tab_bt_confirm_node = document.getElementById("template_add_tab_bt_confirm");
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
-    template_add_tab_bt_confirm_node.onclick = add_new_sale_data_confirm;
-    template_add_tab_bt_cancle_node.onclick = add_new_sale_data_cancle;
+
+    init_the_template_new_bt();
+    add_new_sale_query_bt();
     init_sale_table_th();
     get_sale_data();
 
@@ -80,6 +80,8 @@ function add_new_sale_data(argument) {
 	prices_input.id = "add_new_sale_input_prices_id"
 	template_add_tab_input_node.appendChild(prices_input);
 
+    template_add_tab_bt_confirm_node.onclick = add_new_sale_data_confirm;
+    template_add_tab_bt_cancle_node.onclick = add_new_sale_data_cancle;
 
 }
 
@@ -125,7 +127,6 @@ function clear_node_all_child(node) {
 function add_new_sale_data_confirm(argument) {
 	// body...
 	console.log("add_new_sale_data_confirm");
-	hidder_template_add_tab();
 	
 	var customer = document.getElementById("add_new_sale_input_customer_id").value;
 	console.log(customer);
@@ -136,6 +137,12 @@ function add_new_sale_data_confirm(argument) {
 	console.log(number);
 	var prices = document.getElementById("add_new_sale_input_prices_id").value;
 	console.log(prices);
+
+	if ("" == customer || "" == item || "" == number || "" == prices) {
+		showlogininfo("添加数据为空！")
+		return;
+	}
+	hidder_template_add_tab();
 	var data = '{"customer":"' + customer + '", "item":"' + item + 
 	 '", "number":"' + number + '", "prices":"' + prices + '"}';
 	var  urladdr = httpurl + "/php/saleAction.php?action=insert&msg=" + data;
@@ -281,3 +288,27 @@ function init_sale_table_th(argument) {
 	throws.appendChild(creatThByValue("时间"));
 
 }
+
+
+function add_new_sale_query_bt(argument) {
+	// body...
+
+    // var array = template_div_node.children;
+    // for (var i = 0; i < array.length; ++i)
+    // {
+    // 	if ("template_new_bt" != array[i].id && "DIV" != array[i].tagName) 
+    // 		template_div_node.removeChild(array[i]);
+    // }
+    var array = template_div_node.children;
+    node = document.createElement('input');
+    node.type = "button"
+    node.value = "+ 添加查询";
+    node.id = "template_new_sale_query_bt"
+    node.onclick = add_new_sale_query
+    template_div_node.insertBefore(node, array[array.length - 1]);
+}
+
+// function add_new_sale_query(argument) {
+// 	// body...
+// 	add_new_sale_query();
+// }

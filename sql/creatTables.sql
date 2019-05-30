@@ -27,24 +27,11 @@ DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(255) NOT NULL,
-  `telephone` int(12) NOT NULL,
+  `telephone` char(12) NOT NULL,
   `addr` char(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
--- -- ----------------------------
--- -- Table structure for `items`
--- -- ----------------------------
--- DROP TABLE IF EXISTS `items`;
--- CREATE TABLE `items` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `name` char(255) NOT NULL,
---   `cost` int(11) NOT NULL,
---   `prices` int(11) NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 -- ----------------------------
@@ -67,8 +54,8 @@ CREATE TABLE `sale_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
-  `number` int(11) NOT NULL,
-  `prices` int(11) NOT NULL,
+  `number` float(10,2) NOT NULL,
+  `prices` float(10,2) NOT NULL,
   `sale_time` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -80,8 +67,8 @@ DROP TABLE IF EXISTS `stock_data`;
 CREATE TABLE `stock_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_id` int(11) NOT NULL,
-  `number` int(11) NOT NULL,
-  `cost`  int(11) NOT NULL,
+  `number` float(10,2) NOT NULL,
+  `cost`  float(10,2) NOT NULL,
   `stock_time` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

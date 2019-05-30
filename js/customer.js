@@ -23,6 +23,7 @@ function customer_data_manager(argument) {
     template_add_tab_bt_cancle_node = document.getElementById("template_add_tab_bt_cancle");
     template_add_tab_bt_confirm_node.onclick = add_new_customer_data_confirm;
     template_add_tab_bt_cancle_node.onclick = add_new_customer_data_cancle;
+    init_the_template_new_bt();
     init_customer_table_th();
     get_customer_data();
 
@@ -116,7 +117,6 @@ function clear_node_all_child(node) {
 function add_new_customer_data_confirm(argument) {
 	// body...
 	console.log("add_new_customer_data_confirm");
-	hidder_template_add_tab();
 	
 	var name = document.getElementById("add_new_customer_input_name_id").value;
 	console.log(name);
@@ -124,6 +124,11 @@ function add_new_customer_data_confirm(argument) {
 	console.log(telephone);
 	var addr = document.getElementById("add_new_customer_input_addr_id").value;
 	console.log(addr);
+	if ("" == name || "" == telephone || "" == addr) {
+		showlogininfo("添加数据为空！")
+		return;
+	}
+	hidder_template_add_tab();
 	var data = '{"name":"' + name + '", "telephone":"' + telephone + '", "addr":"' + addr + '"}';
 	var  urladdr = httpurl + "/php/customerAction.php?action=insert&msg=" + data;
 	console.log("urladdr = " + urladdr);

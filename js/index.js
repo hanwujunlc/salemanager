@@ -55,7 +55,7 @@ function singledialog(content,func_ok){
 function showlogininfo(str){
     var dialog1 = new singledialog(str);
     document.getElementById('singlecontent').innerHTML=dialog1.content;
-    setTimeout(hidediv,2000000);
+    setTimeout(hidediv,2000);
 }
 
 function hidediv() {
@@ -73,4 +73,16 @@ function creatThByValue(value) {
   th_node.appendChild(value_node);
   return th_node;
 
+}
+
+
+function init_the_template_new_bt(argument) {
+  // body...
+    var template_div_node = document.getElementById("template_tab_div");
+    var array = template_div_node.children;
+    for (var i = 0; i < array.length; ++i)
+    {
+      if ("template_new_bt" != array[i].id && "DIV" != array[i].tagName) 
+        template_div_node.removeChild(array[i]);
+    }
 }
